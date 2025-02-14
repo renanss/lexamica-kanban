@@ -1,6 +1,6 @@
 # Lexamica Kanban
 
-A modern Kanban board application with a monolithic architecture.
+A Kanban board application with a monolithic architecture.
 
 ## Repository Structure
 
