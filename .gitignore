@@ -35,3 +35,10 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db 
+
+
+# Project files
+database/
+frontend/
+backend/
+
