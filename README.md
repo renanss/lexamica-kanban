@@ -9,6 +9,17 @@ This monorepo contains:
 - Backend service (Node.js, Express, MongoDB)
 - Frontend service (Next.js, React Bootstrap, WebSocket)
 
+## Development Approach
+
+This project was built entirely from the ground up without relying on boilerplate templates or pre-built solutions. Every component, from the database schema to the WebSocket implementation, was custom-built to ensure high performance and maintainability.
+
+AI-assisted development tools were strategically utilized to accelerate certain aspects of the implementation. However, all architectural decisions, design choices, and core logic were carefully crafted to meet the specific needs of the application.
+
+The estimated development time for this project ranged from **4 to 6 hours**.
+
+Since the current MongoDB setup runs on a single instance (due to the limited time scope and local development environment), transactions were not implemented. For a production deployment, MongoDB **transactions would be utilized to ensure data consistency across multiple operations**.
+
+
 ## Related Repositories
 
 - [lexamica-kanban-backend](https://github.com/renanss/lexamica-kanban-backend) - Backend service built with Node.js, Express, and MongoDB
@@ -22,6 +33,8 @@ This monorepo contains:
 - Responsive design with Bootstrap
 - RESTful API with MongoDB
 - Docker containerization
+
+
 
 ## Quick Start
 
@@ -88,4 +101,4 @@ Please refer to each project's style and contribution guidelines for submitting 
 
 ## License
 
-[MIT License](LICENSE) 
+[MIT License](LICENSE)
