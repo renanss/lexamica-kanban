@@ -11,6 +11,7 @@ This monorepo contains:
 
 ## Related Repositories
 
+- [lexamica-kanban-backend](https://github.com/renanss/lexamica-kanban-backend) - Backend service built with Node.js, Express, and MongoDB
 - [lexamica-kanban-frontend](https://github.com/renanss/lexamica-kanban-frontend) - Frontend application built with Next.js
 - [lexamica-kanban-database](https://github.com/renanss/lexamica-kanban-database) - Database initialization and migrations
 
@@ -29,6 +30,7 @@ This monorepo contains:
 mkdir lexamica && cd lexamica
 git clone https://github.com/renanss/lexamica-kanban.git
 git clone https://github.com/renanss/lexamica-kanban-frontend.git frontend
+git clone https://github.com/renanss/lexamica-kanban-backend.git backend
 git clone https://github.com/renanss/lexamica-kanban-database.git database
 ```
 
