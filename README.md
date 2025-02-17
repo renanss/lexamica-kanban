@@ -1,49 +1,49 @@
 # Lexamica Kanban
 
-A Kanban board application with a monolithic architecture.
+A modern Kanban board application with real-time updates and drag-and-drop functionality.
 
-## Repository Structure
+## Project Structure
 
-This repository contains:
-
+This monorepo contains:
 - Docker Compose configuration for local development
-- Environment configuration templates
-- Documentation for the overall system
+- Backend service (Node.js, Express, MongoDB)
+- Frontend service (Next.js, React Bootstrap, WebSocket)
 
 ## Related Repositories
 
-- [lexamica-kanban-backend](https://github.com/renanss/lexamica-kanban-backend) - Main application service
+- [lexamica-kanban-frontend](https://github.com/renanss/lexamica-kanban-frontend) - Frontend application built with Next.js
 - [lexamica-kanban-database](https://github.com/renanss/lexamica-kanban-database) - Database initialization and migrations
 
-## Prerequisites
+## Features
 
-- Docker and Docker Compose
-- Git
+- Real-time updates using WebSocket
+- Drag-and-drop task management
+- Responsive design with Bootstrap
+- RESTful API with MongoDB
+- Docker containerization
 
 ## Quick Start
 
-1. Clone all required repositories:
+1. Clone the repositories:
 ```bash
-# Create a directory for all repositories
 mkdir lexamica && cd lexamica
-
-# Clone repositories
 git clone https://github.com/renanss/lexamica-kanban.git
-git clone https://github.com/renanss/lexamica-kanban-backend.git backend
+git clone https://github.com/renanss/lexamica-kanban-frontend.git frontend
 git clone https://github.com/renanss/lexamica-kanban-database.git database
 ```
 
-2. Set up environment variables:
+2. Set up environment:
 ```bash
 cp .env.example .env
 ```
 
-3. Start the services:
+3. Start services:
 ```bash
 docker-compose up -d
 ```
 
-The services will be available at:
+The application will be available at:
+- Frontend: http://localhost:3000
 - Backend API: http://localhost:4000
 - API Documentation: http://localhost:4000/api-docs
 
@@ -66,7 +66,7 @@ The services will be available at:
 The following environment variables can be configured in `.env`:
 
 ```env
-# MongoDB
+# MongoDB (use Docker service name for inter-container communication)
 MONGODB_URL=mongodb://mongodb:27017/kanban
 MONGO_INITDB_DATABASE=kanban
 
@@ -74,9 +74,11 @@ MONGO_INITDB_DATABASE=kanban
 BACKEND_PORT=4000
 NODE_ENV=development
 
-# Frontend (when implemented)
-NEXT_PUBLIC_API_URL=http://localhost:4000
+# Frontend (use Docker service name for inter-container communication)
+NEXT_API_URL=http://backend:4000
 ```
+
+Note: When running in Docker, use service names (e.g., 'mongodb', 'backend') instead of 'localhost' for inter-container communication.
 
 ## Contributing
 

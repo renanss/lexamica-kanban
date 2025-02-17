@@ -14,7 +14,6 @@ services:
     environment:
       - NODE_ENV=development
       - DOCKER_ENV=development
-      - NEXT_PUBLIC_API_URL=http://localhost:4000
     depends_on:
       - backend
 
@@ -29,8 +28,15 @@ services:
       - /app/node_modules
     env_file:
       - ./backend/.env
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/kanban
+      - NODE_ENV=development
+      - PORT=4000
+      - CORS_ORIGIN=http://localhost:3000
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
+    restart: unless-stopped
 
   mongodb:
     image: mongo:latest
@@ -43,6 +49,12 @@ services:
       - ./backend/.env
     environment:
       - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE:-kanban}
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   # mongo-express:
   #   image: mongo-express:latest
